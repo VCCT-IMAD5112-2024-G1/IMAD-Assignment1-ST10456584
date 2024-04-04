@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">IMAD</string>
+    <string name="textView">Welcome!</string>
+    <string name="ageText">Enter Age</string>
+    <string name="Generatebutton">Generate History</string>
+    <string name="clearButton">Clear</string>
+    <string name="resultView">History</string>
+    <string name="numberText">Enter Number</string>
+</resources>
