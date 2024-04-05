@@ -1,83 +1,3 @@
-//package com.example.imad
-//
-//import android.annotation.SuppressLint
-//import android.os.Bundle
-//import android.widget.Button
-//import android.widget.EditText
-//import android.widget.TextView
-//import androidx.appcompat.app.AppCompatActivity
-////import androidx.appcompat.app.AppCompatActivity
-////import android.os.Bundle
-//
-//class MainActivity : AppCompatActivity() {
-//    @SuppressLint("MissingInflatedId")
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_main)
-////class MainActivity : AppCompatActivity() {
-////    override fun onCreate(savedInstanceState: Bundle?) {
-////        super.onCreate(savedInstanceState)
-////        setContentView(R.layout.activity_main)
-//    }
-//}
-////import android.os.Bundle
-////import android.widget.Button
-////import android.widget.EditText
-////import android.widget.TextView
-////import androidx.appcompat.app.AppCompatActivity
-//
-//class MainActivity : AppCompatActivity() {
-//    private late init var ageInput: EditText
-//    private lateinit var generateButton: Button
-//    private lateinit var clearButton: Button
-//    private late init var resultView: TextView
-//
-//    private val historicalAges = mapOf(
-//        "Albert Einstein" to 76,
-//        "Leonardo da Vinci" to 67,
-//        "Isaac Newton" to 84
-//        // Add more historical figures and their ages at death as needed
-//    )
-//
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_main)
-//
-//        ageInput = findViewById(R.id.numberText)
-//        generateButton = findViewById(R.id.Generatebutton)
-//        clearButton = findViewById(R.id.clearButton)
-//        resultView = findViewById(R.id.resultView)
-//
-//        generateButton.setOnClickListener {
-//            generateHistory()
-//        }
-//
-//        clearButton.setOnClickListener {
-//            resultView.text = ""
-//        }
-//    }
-//
-//    private fun generateHistory() {
-//        val ageStr = ageInput.text.toString()
-//        if (ageStr.isNotEmpty()) {
-//            val age = ageStr.toInt()
-//            val matchedFigures = StringBuilder()
-//
-//            for ((figure, figureAge) in historicalAges) {
-//                if (figureAge == age) {
-//                    matchedFigures.append("$figure passed away at the age of $age\n")
-//                }
-//            }
-//
-//            if (matchedFigures.isNotEmpty()) {
-//                resultView.text = matchedFigures.toString()
-//            } else {
-//                resultView.text = "No historical figures found who passed away at age $age"
-//            }
-//        }
-//    }
-//}
-
 package com.example.imad
 
 import android.annotation.SuppressLint
@@ -94,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Initialize UI elements
         val generateButton = findViewById<Button>(R.id.Generatebutton)
         val clearButton = findViewById<Button>(R.id.clearButton)
         val ageText = findViewById<EditText>(R.id.numberText)
@@ -101,8 +22,12 @@ class MainActivity : AppCompatActivity() {
 
         generateButton.setOnClickListener {
             val userAge = ageText.text.toString().toIntOrNull()
+
+            // Validate user input
             if (userAge in 20..100) {
                 if (userAge != null) {
+
+                    // Map of famous figures with their ages
                     val famousFigures = mapOf(
                         "Queen Elizabeth, she was the Queen of England" to 69,
                         "Leonardo da Vinci, he was an Italian Renaissance artist, architect, engineer, and scientist " to 67,
@@ -116,7 +41,10 @@ class MainActivity : AppCompatActivity() {
                         "Ludwig van Beethoven, he  was a Composer" to 56
                     )
 
+                    // Filter famous figures matching user's age
                     val matches = famousFigures.filter { it.value == userAge }
+
+                    // Display matched figures or appropriate message
                     if (matches.isNotEmpty()) {
                         val message = "You are $userAge years old. That's the same age as:\n${matches.keys.joinToString("\n")}"
                         resultView.text = message
@@ -138,67 +66,7 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-//
-//import android.annotation.SuppressLint
-//import android.os.Bundle
-//import android.widget.Button
-//import android.widget.EditText
-//import android.widget.TextView
-//import androidx.appcompat.app.AppCompatActivity
-//
-//class MainActivity : AppCompatActivity() {
-//    private lateinit var ageInput: EditText
-//    private lateinit var generateButton: Button
-//    private lateinit var clearButton: Button
-//    private lateinit var resultView: TextView
-//
-//    private val historicalAges = mapOf(
-//        "Albert Einstein" to 76,
-//        "Leonardo da Vinci" to 67,
-//        "Isaac Newton" to 84
-//        // Add more historical figures and their ages at death as needed
-//    )
-//
-//    @SuppressLint("MissingInflatedId")
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_main)
-//
-//        ageInput = findViewById(R.id.numberText)
-//        generateButton = findViewById(R.id.Generatebutton)
-//        clearButton = findViewById(R.id.clearButton)
-//        resultView = findViewById(R.id.resultView)
-//
-//        generateButton.setOnClickListener {
-//            generateHistory()
-//        }
-//
-//        clearButton.setOnClickListener {
-//            resultView.text = ""
-//        }
-//    }
-//
-//    @SuppressLint("SetTextI18n")
-//    private fun generateHistory() {
-//        val ageStr = ageInput.text.toString()
-//        if (ageStr.isNotEmpty()) {
-//            val age = ageStr.toInt()
-//            val matchedFigures = StringBuilder()
-//
-//            for ((figure, figureAge) in historicalAges) {
-//                if (figureAge == age) {
-//                    matchedFigures.append("$figure passed away at the age of $age\n")
-//                }
-//            }
-//
-//            if (matchedFigures.isNotEmpty()) {
-//                resultView.text = matchedFigures.toString()
-//            } else {
-//                resultView.text = "No historical figures found who passed away at age $age"
-//            }
-//        }
-//    }
-//}
+
 
 
 
